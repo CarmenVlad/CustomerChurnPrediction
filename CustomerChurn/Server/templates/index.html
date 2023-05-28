@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}.button1 {background-color: #808080;} 
+.body { overflow: hidden; }
+.column { float: left; }
+.half { width: 50%; }
+.last { float: none; width: auto; }
+    </style>
+<body style="background-color:#158FAD;" class="body">
+
+
+    
+<div >
+  <h1 >Customer Churn Prediction</h1>
+    <form action="{{url_for('predict_churn')}}" method="post">
+        
+        <table>
+            <tr>
+      <td align="right"><b>Tenure:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='Tenure'  required='required'/></td>
+    </tr>
+    
+              <tr>
+      <td align="right"><b>PreferredLoginDevice:</b></td>
+      
+        
+         <td align='left'>
+         <label >Mobile Phone</label>
+          <input type="radio" id="PreferredLoginDevice" name="PreferredLoginDevice" value="Mobile Phone" checked>
+          
+        <label >Computer</label>
+          <input type="radio" id="PreferredLoginDevice" name="PreferredLoginDevice" value="Computer">
+          
+         <label >Phone</label>
+          <input type="radio" id="PreferredLoginDevice" name="PreferredLoginDevice" value="Phone">
+         
+        </td></tr>
+            <tr>
+      <td align="right"><b>CityTier:</b></td>
+      <td align="1">
+           <label >Ideal</label>
+          <input type="radio" id="CityTier" name="CityTier" value="1" checked>
+          <label >1</label>
+          <input type="radio" id="CityTier" name="CityTier" value="2">
+          <label >2</label>
+          <input type="radio" id="CityTier" name="CityTier" value="3">
+          <label >3</label>
+          
+        
+        </td>
+                
+                
+    </tr>
+             <tr>
+      <td align="right"><b>WarehouseToHome:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='WarehouseToHome'  required='required'/></td>
+    </tr>
+    <tr>
+      <td align="right"><b>PreferredPaymentMode:</b></td>
+      <td align="left"> 
+          <label >Debit Card</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="Debit Card" checked>
+          <label >Credit Card</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="Credit Card">
+          <label >E wallet</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="E wallet">
+          <label >UPI</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="UPI">
+          <label >COD</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="COD">
+        <label >CC</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="CC">
+          <label >Cash on Delivery</label>
+          <input type="radio" id="PreferredPaymentMode" name="PreferredPaymentMode" value="CashonDelivery">
+         
+        </td>
+    </tr>
+         <tr>
+      <td align="right"><b>Gender:</b></td>
+      <td align="left">
+           <label >Male</label>
+          <input type="radio" id="Gender" name="Gender" value="Male" checked>
+          <label >Female</label>
+          <input type="radio" id="Gender" name="Gender" value="Female">
+          
+          </td>
+                </tr>
+            <tr>
+      <td align="right"><b>HourSpendOnApp:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='HourSpendOnApp'  required='required'/></td>
+    </tr>
+            
+          <tr>
+      <td align="right"><b>NumberOfDeviceRegistered:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='NumberOfDeviceRegistered'  required='required'/></td>
+    </tr>   
+            
+    <tr>
+      <td align="right"><b>PreferedOrderCat:</b></td>
+      <td align="left"> 
+          <label >Laptop & Accessory</label>
+          <input type="radio" id="PreferedOrderCat" name="PreferedOrderCat" value="Laptop & Accessory" checked>
+          <label >Mobile Phone</label>
+          <input type="radio" id="PreferedOrderCat" name="PreferedOrderCat" value="Mobile Phone">
+          <label >Fashion</label>
+          <input type="radio" id="PreferedOrderCat" name="PreferedOrderCat" value="Fashion">
+          <label >Mobile</label>
+          <input type="radio" id="PreferedOrderCat" name="PreferedOrderCat" value="Mobile">
+          <label >Grocery</label>
+          <input type="radio" id="PreferedOrderCat" name="PreferedOrderCat" value="Grocery">
+        <label >Others</label>
+          <input type="radio" id="PreferedOrderCat" name="PreferedOrderCat" value="Others">
+         
+         
+        </td>
+    </tr>
+          <tr>
+      <td align="right"><b>SatisfactionScore:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='SatisfactionScore'  required='required'/></td>
+    </tr>   
+             <tr>
+      <td align="right"><b>MaritalStatus:</b></td>
+      <td align="left">
+           <label >Married</label>
+          <input type="radio" id="MaritalStatus" name="MaritalStatus" value="Married" checked>
+          <label >Single</label>
+          <input type="radio" id="MaritalStatus" name="MaritalStatus" value="Single">
+          <label >Divorced</label>
+          <input type="radio" id="MaritalStatus" name="MaritalStatus" value="Divorced">
+          
+          
+          </td>
+                </tr>
+             <tr>
+      <td align="right"><b>NumberOfAddress:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='NumberOfAddress'  required='required'/></td>
+    </tr>   
+              <tr>
+      <td align="right"><b>Complain:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='Complain'  required='required'/></td>
+    </tr>   
+             <tr>
+      <td align="right"><b>OrderAmountHikeFromlastYear:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='OrderAmountHikeFromlastYear'  required='required'/></td>
+    </tr>   
+            <tr>
+      <td align="right"><b>CouponUsed:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='CouponUsed'  required='required'/></td>
+    </tr>   
+              <tr>
+      <td align="right"><b>OrderCount:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='OrderCount'  required='required'/></td>
+    </tr>  
+             <tr>
+      <td align="right"><b>DaySinceLastOrder:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='DaySinceLastOrder'  required='required'/></td>
+    </tr>  
+              <tr>
+      <td align="right"><b>CashbackAmount:</b></td>
+      <td align="left"><input type='text'onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"  name='CashbackAmount'  required='required'/></td>
+    </tr>
+        <tr>
+             <td align="right"></td>
+       <td align="left"> <button type="submit" class="button button1">Get Prediction</button></td></tr></table>
+       
+    
+    </form><br>
+    <b>{{prediction_text}}</b><br><br>
+</div>
+   
+
+
+</body>
+</html>
